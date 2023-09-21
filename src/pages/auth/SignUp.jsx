@@ -2,9 +2,10 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { BsEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Logo from "../../components/Logo";
 import { auth } from "../../firebase";
-import { toast } from "react-toastify";
 
 const SignUp = () => {
 	const navigate = useNavigate();

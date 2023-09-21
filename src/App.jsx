@@ -26,7 +26,7 @@ let router = createBrowserRouter([
 
 const App = () => {
 	const [searchImage, setSearchImage] = useState("");
-	const { response, isLoading, error, fetchData } = useAxios(
+	const { response, isLoading, error, fetchData, setResponse } = useAxios(
 		`search/photos?page=1&query=beach`
 	);
 
@@ -35,6 +35,7 @@ const App = () => {
 		isLoading,
 		error,
 		fetchData,
+		setResponse,
 		searchImage,
 		setSearchImage,
 	};

@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ImageContext } from "../context/ImageProvider";
 import Image from "./Image";
 import Skeleton from "./Skeleton";
+import { ReactSortable } from "react-sortablejs";
 
 const ImageList = () => {
-	const { response, isLoading, searchImage } = useContext(ImageContext);
+	const { response, isLoading, setResponse, searchImage } =
+		useContext(ImageContext);
 
 	return (
 		<section className="px-4 md:px-8 xl:px-12 mt-12">
@@ -17,13 +19,17 @@ const ImageList = () => {
 					<span className="capitalize">{searchImage || "beach"}</span>
 				</p>
 			</div>
-			<div className="container mx-auto grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			<ReactSortable
+				list={response}
+				setList={setResponse}
+				className="container mx-auto grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+			>
 				{isLoading ? (
 					<Skeleton items={response.length} />
 				) : (
 					response.map((data) => <Image key={data.id} data={data} />)
 				)}
-			</div>
+			</ReactSortable>
 		</section>
 	);
 };

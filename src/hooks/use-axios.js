@@ -33,6 +33,7 @@ const useAxios = (param) => {
 		isLoading,
 		error,
 		fetchData: (url) => fetchData(url),
+		setResponse,
 	};
 };
 
