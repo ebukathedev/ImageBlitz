@@ -1,6 +1,26 @@
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.transition-normal {
+		transition: all 0.3s ease-in-out;
+	}
+	.small-caps {
+		font-variant: all-small-caps;
+	}
+	.input {
+		@apply bg-transparent placeholder:text-lightBlue-300;
+	}
+	.btn-primary {
+		@apply text-white hover:text-primary hover:bg-white shadow-primary bg-primary;
+	}
+	.input-parent {
+		@apply flex border rounded-md items-center px-2 py-2 focus-within:border-primary gap-4 transition-normal md:px-4;
+	}
+	.input-parent:focus-within > :last-child {
+		@apply text-primary transition-normal;
+	}
+}
