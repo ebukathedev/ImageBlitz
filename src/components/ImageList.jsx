@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ImageContext } from "../context/ImageProvider";
 import Image from "./Image";
 import Skeleton from "./Skeleton";
